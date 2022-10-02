@@ -1,10 +1,11 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-from keras.preprocessing import image
+import tensorflow as tf
+from tensorflow.keras.preprocessing import image
 
-def load_image(image_path, grayscale=False, target_size=None):
-    pil_image = image.load_img(image_path, grayscale, target_size)
+def load_image(image_path, color_mode='rgb', target_size=None):
+    pil_image = image.load_img(image_path, color_mode=color_mode, target_size=target_size)
     return image.img_to_array(pil_image)
 
 def load_detection_model(model_path):
